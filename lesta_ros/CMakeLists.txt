@@ -3,9 +3,6 @@ project(lesta)
 add_compile_options(-std=c++17)
 
 # LibTorch setup
-find_package(Torch REQUIRED PATHS /opt/libtorch)
-
-find_package(PCL REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
     height_mapping_core
     roscpp
@@ -14,6 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
     grid_map_ros
     message_generation
 )
+
+find_package(Torch REQUIRED PATHS /opt/libtorch)
+
+find_package(PCL REQUIRED)
 
 add_service_files(
   FILES

@@ -309,7 +309,21 @@ rosbag play {your-rosbag}.bag --clock -r 2
 </table>
 
 ## Using Docker
-To be updated...
+```bash
+cd ~/LeSTA/docker
+##image build
+docker compose -f docker-compose-gui-nvidia.yaml build
+##create container
+docker compose -f docker-compose-gui-nvidia.yaml up -d
+docker exec -it docker-lesta-1 /bin/bash
+
+##in container
+cd ~/catkin_ws/
+catkin build
+source devel/setup.bash
+
+roslaunch lesta label_generation.launch ## issue!!
+```
 
 ## Issues
 - **Artifacts from dynamic objects**:

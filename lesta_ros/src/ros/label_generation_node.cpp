@@ -43,6 +43,8 @@
    // Global Mapper
    mapper_ = std::make_unique<lesta::GlobalMapper>(global_mapper::loadConfig(cfg_mapper));
         std::cout << "== [DEBUG] mapper loaded ==" << std::endl;
+        //issue step !!
+
    // Feature Extractor
    feature_extractor_ = std::make_unique<lesta::FeatureExtractor>(
        feature_extractor::loadConfig(cfg_feature_extractor));
