@@ -1,7 +1,7 @@
 DATASET:
   type: "pcd_dataset"
-  training_data: "/root/lesta_ws/src/LeSTA/label_maps/train_set.pcd"
-  validation_data: "/root/lesta_ws/src/LeSTA/label_maps/vali_set.pcd" # Put a fully labeled dataset here if you have one
+  training_data: "/root/lesta_ws/src/LeSTA/data/train/train_set.pcd"
+  validation_data: "/root/lesta_ws/src/LeSTA/data/val/vali_set.pcd" # Put a fully labeled dataset here if you have one
   feature_fields:
     - step
     - slope

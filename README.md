@@ -318,11 +318,22 @@ docker compose -f docker-compose-gui-nvidia.yaml up -d
 docker exec -it docker-lesta-1 /bin/bash
 
 ##in container
-cd ~/catkin_ws/
+cd ~/lesta_ws/
 catkin build
 source devel/setup.bash
 
-roslaunch lesta label_generation.launch ## issue!!
+## label_generate ##
+roslaunch lesta label_generation.launch
+rosservice call /lesta/save_label_map "train_set.pcd" "/root/lesta_ws/src/LeSTA/data/train"
+rosservice call /lesta/save_label_map "val_set.pcd" "/root/lesta_ws/src/LeSTA/data/val"
+
+## train ##
+cd /root/lesta_ws/src/LeSTA
+python3 pylesta/tools/train.py
+
+## travel predict ##
+roslaunch lesta traversability_prediction.launch
+roslaunch lesta traversability_mapping.launch
 ```
 
 ## Issues

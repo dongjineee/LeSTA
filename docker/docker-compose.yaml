@@ -4,7 +4,7 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
       target: dev
-    image: dongjineee/lesta:02
+    image: dongjineee/lesta:01
     stdin_open: true
     tty: true
     network_mode: "host"
