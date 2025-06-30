@@ -21,16 +21,25 @@ class RiskWeightedPCDDataset(PCDDataset):
         self._calc_cumulative_risks()
         self._calc_risk_weights()
 
+    # def __len__(self):
+    #     return super().__len__()
     def __len__(self):
-        return super().__len__()
+        return min(len(self.points), len(self.labels), len(self.risk_weights))
 
     def __getitem__(self, idx):
-        """Get item at index."""
-
+        if idx >= len(self.risk_weights):
+            return super().__getitem__(idx) | {'risk_weights': 1.0}
         sample = super().__getitem__(idx)
         sample['risk_weights'] = self.risk_weights[idx]
-
         return sample
+    
+    # def __getitem__(self, idx):
+    #     """Get item at index."""
+
+    #     sample = super().__getitem__(idx)
+    #     sample['risk_weights'] = self.risk_weights[idx]
+
+    #     return sample
 
     def _calc_intrinsic_risks(self):
         """Calculate intrinsic risk of the dataset."""

@@ -4,16 +4,15 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
       target: dev
-    image: dongjineee/lesta:00
+    image: dongjineee/lesta:02
     stdin_open: true
     tty: true
     network_mode: "host"
     volumes:
-      - ../assets:/root/catkin_ws/src/leta_ws/assets
-      - ../height_mapping:/root/catkin_ws/src/leta_ws/height_mapping
-      - ../lesta_ros:/root/catkin_ws/src/leta_ws/lesta_ros
-      - ../pylesta:/root/catkin_ws/src/leta_ws/pylesta
+      - ../../LeSTA:/root/lesta_ws/src/LeSTA
+      # - ../../../../dataset:/root/lesta_ws/src/dataset
       
     environment:
       - ROS_IP=127.0.0.1
     command: "/bin/bash"
+    shm_size: 128M

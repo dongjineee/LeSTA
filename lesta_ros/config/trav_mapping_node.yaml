@@ -20,7 +20,7 @@ height_mapper:
   max_height_threshold: 1.5    # [meter]
 
 traversability_mapper:
-  model_path: "$(env HOME)/Downloads/LeSTA_campus_road_libtorch.pt"
+  model_path: "/root/lesta_ws/src/LeSTA/checkpoints/20250630_093501/epoch_best.pt"
   input_dimension: 4
   feature_fields:
     - step
